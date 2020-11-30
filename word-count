@@ -1,0 +1,26 @@
+#! /bin/bash
+
+echo Liam Crawshaw CIS140U lab5
+
+if [[ $# < 1 ]]; then
+	echo 'provide a file!'
+	exit -1
+fi
+
+file=$1
+running=true
+
+while $running ; do
+	echo -n '$ '
+	read line
+	if [ "$line" == 'q' ] ; then
+		break
+	fi
+	for word in $line ; do
+		nTimes=$(grep -wo $word $file | wc -l)
+		quotedWord="\"$word\""
+		printf "%-12s occurs %5d times in file %s\n" $quotedWord $nTimes $file
+	done
+done
+echo 'Take Care'
+
