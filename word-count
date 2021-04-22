@@ -1,7 +1,5 @@
 #! /bin/bash
 
-echo Liam Crawshaw CIS140U lab5
-
 if [[ $# < 1 ]]; then
 	echo 'provide a file!'
 	exit -1
